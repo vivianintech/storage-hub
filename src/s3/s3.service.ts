@@ -33,14 +33,16 @@ export class S3Service {
         }),
       );
     } catch (e) {
-      console.log(e);
       throw new Error(e.message);
     }
   }
 
-  async uploadS3Object(folderStructure: string, file: Express.Multer.File) {
+  async uploadS3Object(
+    folderStructure: string,
+    file: Express.Multer.File,
+  ): Promise<void> {
     try {
-      this.s3Client.send(
+      await this.s3Client.send(
         new PutObjectCommand({
           Bucket: this.bucket,
           Key: folderStructure,
@@ -49,9 +51,7 @@ export class S3Service {
       );
 
       this.s3Client.destroy();
-      console.log('upload successful');
     } catch (e) {
-      console.log(e);
       throw new Error(e.message);
     }
   }

@@ -10,6 +10,7 @@ export function generateFolderStructure(
   uploadFrom: string,
   fileName: string,
   uuid: string,
+  email: string,
 ): string {
   const fileExtension = getFileExtension(fileName);
 
@@ -18,11 +19,10 @@ export function generateFolderStructure(
   }
 
   // Folder structure example: 'front-end-app/2024/01/01/032f4fd4-b943-4468-b6bf-03563c2db304/file-name.jpeg'
-  return `${uploadFrom}/${getCurrentYear()}/${getCurrentMonth()}/${getCurrentDate()}/${uuid}/${fileName}`;
+  return `${uploadFrom}/${getCurrentYear()}/${getCurrentMonth()}/${getCurrentDate()}/${email}/${uuid}/${fileName}`;
 }
 
 function getFileExtension(fileName: string): string {
-  console.log({ fileName });
   const dotIndex = fileName.includes('.') ? fileName.lastIndexOf('.') : '';
 
   if (dotIndex === '') {
@@ -36,7 +36,7 @@ function getFileExtension(fileName: string): string {
 export function validateFolderStructure(folderStructure: string): boolean {
   const folders = folderStructure.split('|');
 
-  if (folders.length < 6) {
+  if (folders.length < 7) {
     throw new BadRequestException('Folder structure is invalid.');
   }
 
