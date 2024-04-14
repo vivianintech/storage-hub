@@ -34,6 +34,14 @@ export class FileUploadController {
   }
 }
 
+export const exampleCurlPostUpload =
+  'curl -X POST http://localhost:3000/file/upload \
+  -H "Content-Type: multipart/form-data" \
+  -F "upload_from=front-end" \
+  -F "file_name=file_name.jpeg" \
+  -F "uuid=3c02caa8-ce22-456e-9108-d03d63f2bdf0" \
+  -F "file=@/path/to/your/file.jpeg"';
+
 class FileUploadRequestDto {
   @ApiProperty({
     description:

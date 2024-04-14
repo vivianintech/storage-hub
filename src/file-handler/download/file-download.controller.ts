@@ -11,6 +11,10 @@ export class FileDownloadController {
   }
 }
 
+export const exampleCurlGetDownload =
+  'curl -X POST http://localhost:3000/file/download \
+  -d "folder_structure=folder/structure/file.jpeg"';
+
 class FileDownloadRequestDto {
   @ApiProperty({
     description: 'Folder structure of the targeted file',
