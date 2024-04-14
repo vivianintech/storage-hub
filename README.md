@@ -1,6 +1,6 @@
 # Storage Hub
 
-Storage Hub is a versatile repository for managing file uploads and downloads within my Nest.js applications.
+Storage Hub is a versatile repository for managing file uploads and downloads to and from AWS S3 Bucket or Cloudflare R2.
 
 ## Features
 

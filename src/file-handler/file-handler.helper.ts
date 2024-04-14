@@ -17,11 +17,12 @@ export function generateFolderStructure(
     throw new BadRequestException('File extension is not supported.');
   }
 
-  // Folder structure example: 'front-end-app|2024|01|01|032f4fd4-b943-4468-b6bf-03563c2db304|file-name.jpeg'
-  return `${uploadFrom}|${getCurrentYear()}|${getCurrentMonth()}|${getCurrentDate()}|${uuid}|${fileName}`;
+  // Folder structure example: 'front-end-app/2024/01/01/032f4fd4-b943-4468-b6bf-03563c2db304/file-name.jpeg'
+  return `${uploadFrom}/${getCurrentYear()}/${getCurrentMonth()}/${getCurrentDate()}/${uuid}/${fileName}`;
 }
 
 function getFileExtension(fileName: string): string {
+  console.log({ fileName });
   const dotIndex = fileName.includes('.') ? fileName.lastIndexOf('.') : '';
 
   if (dotIndex === '') {

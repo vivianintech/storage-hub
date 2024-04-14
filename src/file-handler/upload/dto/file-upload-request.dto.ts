@@ -14,7 +14,7 @@ export class FileUploadDto {
       'Name of the uploaded file including the file extension. E.g: file-name.jpeg',
   })
   @IsString()
-  fileName: string;
+  file_name: string;
 
   @ApiProperty({
     description: 'UUID version 4',
